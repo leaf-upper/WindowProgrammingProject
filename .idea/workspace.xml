@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8935484a-559c-4e8f-af7d-0dd6455ae4d1" name="Default Changelist" comment="" />
+    <list default="true" id="8935484a-559c-4e8f-af7d-0dd6455ae4d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GetMovieInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GetUpcomingMovies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/Movie.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieSearchPanel$GetMovieInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieSearchPanel$MovieSearchButtonActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieSearchPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen$GetTodayMovieScreenInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen$GetTodayMovieScreenInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieSearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieSearchPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TodayMovieScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodayMovieScreen.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +28,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1UEea4FTOSaxpw81rORXIskQFv1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/json-simple-1.1.1.jar!/" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -60,5 +77,34 @@
       <updated>1574926241255</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Movie.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Movie.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

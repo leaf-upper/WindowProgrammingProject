@@ -15,7 +15,6 @@ public class TodayMovieScreen extends JPanel
     JSONObject jsonObject;
     JSONParser jsonParser;
     JSONArray jsonArray;
-
     GetTodayMovieScreenInfo movieScreenInfo;
 
     TodayMovieScreen()
