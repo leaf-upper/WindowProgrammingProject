@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8935484a-559c-4e8f-af7d-0dd6455ae4d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/GetMovieInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GetUpcomingMovies.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MovieGenre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/GetMovieInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/GetMovieInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieSearchPanel$GetMovieInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieSearchPanel$MovieSearchButtonActionListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieSearchPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen$GetTodayMovieScreenInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen$GetTodayMovieScreenInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/TodayMovieScreen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GetMovieInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GetMovieInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieSearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieSearchPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TodayMovieScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodayMovieScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,21 +85,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Movie.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Movie.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -25,17 +25,18 @@ public class GetMovieInfo
     private int page;
 
     private String moviename;
+    private int primary_release_year;
 
     GetMovieInfo()
     {
         page = 1;
     }
 
-    public JSONArray parseJson(String moviename) {
+    public JSONArray parseJson(String moviename,int primary_release_year) {
         jsonParser = new JSONParser();
         try {
 
-            jsonObject = (JSONObject) jsonParser.parse(getSearchMovie(moviename).toString());
+            jsonObject = (JSONObject) jsonParser.parse(getSearchMovie(moviename, primary_release_year).toString());
             movies = (JSONArray) jsonObject.get("results");
 
             for (int i = 0; i < movies.size(); i++) {
@@ -52,13 +53,27 @@ public class GetMovieInfo
         return movies;
     }
 
-    public StringBuffer getSearchMovie(String movie)
+    public JSONArray getMovieJSONArray(String moviename, int primary_release_year) {
+        jsonParser = new JSONParser();
+        try {
+
+            jsonObject = (JSONObject) jsonParser.parse(getSearchMovie(moviename,primary_release_year).toString());
+            movies = (JSONArray) jsonObject.get("results");
+        }catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+        return movies;
+    }
+
+    public StringBuffer getSearchMovie(String movie, int primary_release_year)
     {
         moviename = movie;
+        this.primary_release_year = primary_release_year;
 
         StringBuffer buffer = new StringBuffer();
         try {
-            url = new URL(urlString + api_key + "&page=" + page + "&language=" + language + "&region=" + region + "&query=" + moviename);
+            url = new URL(urlString + api_key + "&page=" + page + "&language=" + language + "&region=" + region + "&query=" + moviename+ "&primary_release_year=" + this.primary_release_year);
             httpURLConnection = (HttpURLConnection) url.openConnection();
             int responseCode = httpURLConnection.getResponseCode();
 
