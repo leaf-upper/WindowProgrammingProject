@@ -28,7 +28,7 @@ public class GetUpcomingMovies {
         page = 1;
     }
 
-    public void parseJson() {
+    public JSONArray parseJson() {
         jsonParser = new JSONParser();
         try {
 
@@ -43,6 +43,8 @@ public class GetUpcomingMovies {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        return movies;
     }
 
     public StringBuffer getUpComingMovies() {

@@ -23,6 +23,7 @@ public class UIManager {
             super();
             setSize(1280, 720);
             setDefaultCloseOperation(EXIT_ON_CLOSE);
+            setResizable(false);
             calendarPanel = new CalendarPanel();
             add(calendarPanel);
             setVisible(true);

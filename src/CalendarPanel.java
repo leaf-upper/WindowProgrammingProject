@@ -1,11 +1,11 @@
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
+import java.util.*;
 
 public class CalendarPanel extends JPanel {
 
@@ -18,7 +18,7 @@ public class CalendarPanel extends JPanel {
         calendar.set(this.year, this.month, this.day);
         infoPanel.setMonthFieldText(this.month);
         infoPanel.setYearFieldText(this.year);
-        monthPanel.setMonthPanel(this.year, this.month);
+        monthPanel.setMonthPanel(this.year, this.month, upcomingMovieDataStore);
     }
     private int year;
     private int month;
@@ -53,7 +53,8 @@ public class CalendarPanel extends JPanel {
     private InfoPanel infoPanel;
     private WeekPanel weekPanel;
     private MonthPanel monthPanel;
-    private DayPanel dayPanel;
+    private MovieDataStore upcomingMovieDataStore;
+    private GetUpcomingMovies movies;
 
     CalendarPanel(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -72,6 +73,16 @@ public class CalendarPanel extends JPanel {
         monthPanel = new MonthPanel();
         addMouseWheelListener(new MonthWheelListener());
         add(monthPanel);
+
+        upcomingMovieDataStore = new MovieDataStore();
+        movies = new GetUpcomingMovies();
+
+        JSONArray array = (JSONArray)movies.parseJson();
+        for (int i = 0; i < array.size(); i++) {
+            JSONObject nowObject = (JSONObject) array.get(i);
+            upcomingMovieDataStore.addMovieData(new MovieData((String)nowObject.get("release_date"), (String)nowObject.get("title")));
+        }
+        upcomingMovieDataStore.printMovieData();
 
         setCalendar(getYear(), getMonth(), getDay());
     }
@@ -217,12 +228,12 @@ class WeekPanel extends JPanel{
     WeekPanel(){
         setBackground(Color.darkGray);
         setLayout(new GridLayout(1, 7));
-        setMaximumSize(new Dimension(1280, 40));
+        setMaximumSize(new Dimension(1280, 60));
         for(int i = 0; i < 7; i++){
             JLabel label = new JLabel(weekName[i], SwingConstants.CENTER);
             label.setFont(new Font("Bodoni MT", Font.BOLD, 16));
             label.setForeground(Color.white);
-            label.setPreferredSize(new Dimension(10, 60));
+            label.setPreferredSize(new Dimension(10, 40));
             add(label);
         }
     }
@@ -244,7 +255,7 @@ class MonthPanel extends JPanel{
         }
     }
 
-    void setMonthPanel(int year, int month){
+    void setMonthPanel(int year, int month, MovieDataStore movieDataStore){
         Calendar calendar = new GregorianCalendar();
         calendar.set(year, month, 1);
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
@@ -254,10 +265,22 @@ class MonthPanel extends JPanel{
             Color color = Color.black;
             if(i % 7 == 0)
                 color = Color.red;
+            dayPanels[i].getMovieDataVector().clear();
+            dayPanels[i].setMovieLabel();
 
             if(i >= dayOfWeek && i < dayOfWeek + dayOfMonth)
             {
                 dayPanels[i].setDayLabelText(i + 1 - dayOfWeek, color);
+                for(int j = 0; j < movieDataStore.getMovieDataVector().size(); j++)
+                {
+                    if(movieDataStore.getMovieDataVector().get(j).getYear() != year)
+                        continue;
+                    if(movieDataStore.getMovieDataVector().get(j).getMonth() - 1 != month)
+                        continue;
+                    if(movieDataStore.getMovieDataVector().get(j).getDay() == i)
+                        dayPanels[i].addMovieData(movieDataStore.getMovieDataVector().get(j));
+                }
+                dayPanels[i].setMovieLabel();
             }
             else if(i < dayOfWeek)
             {
@@ -288,30 +311,93 @@ class MonthPanel extends JPanel{
 
 class DayPanel extends JPanel{
     private JLabel dayLabel;
-    private ArrayList<JLabel> movieLabels;
+    private JLabel movieLabel;
+    private int maxDisplayMovie;
+    private Vector<MovieData> movieDataVector;
+    public Vector<MovieData> getMovieDataVector() {return movieDataVector;}
 
     DayPanel(){
         this.setAlignmentX(LEFT_ALIGNMENT);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new LineBorder(Color.gray));
 
+        maxDisplayMovie = 3;
+
         dayLabel = new JLabel();
         dayLabel.setFont(new Font("Bodoni MT", Font.BOLD, 16));
-        //dayLabel.setMaximumSize(new Dimension(40, 20));
-        //dayLabel.setAlignmentX(LEFT_ALIGNMENT);
+        movieLabel = new JLabel("");
+        movieLabel.setFont(new Font("바탕체", Font.PLAIN, 12));
+        movieLabel.setForeground(Color.blue);
+
+        movieDataVector = new Vector<MovieData>();
 
         add(dayLabel);
+        add(movieLabel);
     }
 
     public void setDayLabelText(int day, Color color){
-        if(day != 0)
-        {
-            dayLabel.setText(String.valueOf(day));
-        }
-        else
-        {
-            dayLabel.setText("");
-        }
+        dayLabel.setText(String.valueOf(day));
         dayLabel.setForeground(color);
     }
+
+    public void addMovieData(MovieData data){
+        movieDataVector.add(data);
+    }
+
+    public void setMovieLabel(){
+        StringBuilder info = new StringBuilder("<html>");
+        for(int i = 0; i < movieDataVector.size(); i++){
+            if(i == maxDisplayMovie)
+                break;
+            info.append(movieDataVector.get(i).getTitle());
+            info.append("<br>");
+        }
+        if(movieDataVector.size() > maxDisplayMovie)
+            info.append(". . .");
+        info.append("</html>");
+        movieLabel.setText(info.toString());
+    }
+}
+
+class MovieDataStore{
+    private Vector<MovieData> movieDataVector;
+    public Vector<MovieData> getMovieDataVector() {return movieDataVector;}
+
+    MovieDataStore(){
+        movieDataVector = new Vector<MovieData>();
+    }
+
+    public void addMovieData(MovieData data){
+        movieDataVector.add(data);
+    }
+
+    public void printMovieData(){
+        for(MovieData movieData : movieDataVector){
+            System.out.println(movieData.getReleaseDate() + " " + movieData.getTitle());
+        }
+    }
+}
+
+class MovieData{
+    private String releaseDate;
+    public String getReleaseDate() {return releaseDate;}
+    private int year;
+    public int getYear() {return year;}
+    private int month;
+    public int getMonth() {return month;}
+    private int day;
+    public int getDay() {return day;}
+    private String title;
+    public String getTitle() {return title;}
+
+    MovieData(String releaseDate, String title)
+    {
+        this.releaseDate = releaseDate;
+        this.title = title;
+        String[] dateArray = releaseDate.split("-");
+        this.year = Integer.valueOf(dateArray[0]);
+        this.month = Integer.valueOf(dateArray[1]);
+        this.day = Integer.valueOf(dateArray[2]);
+    }
+
 }
