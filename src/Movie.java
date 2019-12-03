@@ -24,9 +24,5 @@ public class Movie extends JFrame {
         setVisible(true);
     }
 
-    public static void main(String[] args)
-    {
-        new Movie();
-    }
 }
 
