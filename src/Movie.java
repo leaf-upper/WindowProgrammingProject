@@ -15,10 +15,5 @@ public class Movie extends JFrame {
         setVisible(true);
         setSize(1280,720);
     }
-
-    public static void main(String[] args)
-    {
-        new Movie();
-    }
 }
 
