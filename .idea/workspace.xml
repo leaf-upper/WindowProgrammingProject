@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8935484a-559c-4e8f-af7d-0dd6455ae4d1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/CalendarPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieCalendar.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UIManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/Movie.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/Movie.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/GetUpcomingMovies.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/GetUpcomingMovies.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieCalendar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MovieCalendar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GetUpcomingMovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GetUpcomingMovies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieCalendar.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,10 +29,15 @@
   <component name="ProjectId" id="1UEea4FTOSaxpw81rORXIskQFv1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/json-simple-1.1.1.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\pimm\IdeaProjects\MovieCalendar\.idea" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
