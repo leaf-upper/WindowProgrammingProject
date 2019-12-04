@@ -200,14 +200,14 @@ class InfoPanel extends JPanel{
         //setPreferredSize(new Dimension(100, 80));
         monthField = new JTextField();
         monthField.setBorder(new EmptyBorder(0, 0, 0, 0));
-        monthField.setFont(new Font("Bodoni MT", Font.BOLD, 48));
+        monthField.setFont(new Font("Bodoni MT", Font.BOLD, 42));
 
         JLabel blankLabel = new JLabel();
-        blankLabel.setPreferredSize(new Dimension(24, 8));
+        blankLabel.setPreferredSize(new Dimension(24, 4));
 
         yearField = new JTextField();
         yearField.setBorder(new EmptyBorder(0, 0, 0, 0));
-        yearField.setFont(new Font("Bodoni MT", Font.BOLD, 48));
+        yearField.setFont(new Font("Bodoni MT", Font.BOLD, 42));
 
         add(monthField);
         add(blankLabel);
@@ -279,7 +279,6 @@ class MonthPanel extends JPanel{
                     if(movieDataStore.getMovieDataVector().get(j).getDay() == i)
                         dayPanels[i].addMovieData(movieDataStore.getMovieDataVector().get(j));
                 }
-                dayPanels[i].setMovieLabels();
             }
             else if(i < dayOfWeek)
             {
@@ -304,7 +303,7 @@ class MonthPanel extends JPanel{
                 int nextDay = i - (dayOfWeek + dayOfMonth);
                 dayPanels[i].setDayLabelText(nextDay + 1, Color.gray);
             }
-
+            dayPanels[i].setMovieLabels();
         }
     }
 }
@@ -334,7 +333,6 @@ class DayPanel extends JPanel{
             JLabel movieLabel = new JLabel(" ");
             movieLabel.setFont(new Font("바탕체", Font.PLAIN, 12));
             movieLabel.setForeground(Color.blue);
-            movieLabel.setBorder(new LineBorder(Color.red));
             movieLabel.addMouseListener(new MovieLabelMouseListener());
             movieLabels.add(movieLabel);
             add(movieLabel);
@@ -370,9 +368,7 @@ class DayPanel extends JPanel{
                 if(label.getText().equals(movieDataVector.get(i).getTitle()))
                 {
                     System.out.println(movieDataVector.get(i).getYear() + "-" + movieDataVector.get(i).getTitle());
-                    UIManager.getInstance().movieSearchPanel = new MovieSearchPanel(movieDataVector.get(i).getTitle(), movieDataVector.get(i).getYear());
-                    UIManager.getInstance().mainFrame.add(UIManager.getInstance().movieSearchPanel);
-                    UIManager.getInstance().mainFrame.cardLayout.next(UIManager.getInstance().mainFrame.getContentPane());
+                    UIManager.getInstance().mainFrame.goToMovieSearchPanel(movieDataVector.get(i).getTitle(), movieDataVector.get(i).getYear());
                     break;
                 }
             }
