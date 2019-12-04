@@ -5,6 +5,8 @@ import javax.swing.*;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class MovieSearchPanel extends JPanel implements Scrollable
@@ -13,6 +15,7 @@ public class MovieSearchPanel extends JPanel implements Scrollable
     JSONArray movieArray;
     BoxLayout boxLayout;
     String default_imagepath = "https://image.tmdb.org/t/p/w300";
+    JButton backButton;
 
     MovieSearchPanel(String moviename, int primary_release_year)
     {
@@ -20,7 +23,14 @@ public class MovieSearchPanel extends JPanel implements Scrollable
         getMovieInfo = new GetMovieInfo();
         movieArray = getMovieInfo.getMovieJSONArray(moviename, primary_release_year);
         boxLayout = new BoxLayout(this, BoxLayout.Y_AXIS);
-
+        backButton = new JButton("뒤로가기");
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                UIManager.mainFrame.cardLayout.next(UIManager.mainFrame.getContentPane());
+                UIManager.mainFrame.remove(UIManager.getInstance().movieSearchPanel);
+            }
+        });
         setLayout(boxLayout);
         for (int i = 0; i < movieArray.size(); i++)
         {
@@ -65,6 +75,7 @@ public class MovieSearchPanel extends JPanel implements Scrollable
             overViewpanel.setAlignmentX(LEFT_ALIGNMENT);
 
             movieInfoPanel.add(overViewpanel);
+            movieBox.add(backButton);
             movieBox.setBorder(BorderFactory.createEtchedBorder());
         }
 

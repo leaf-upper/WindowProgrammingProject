@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8935484a-559c-4e8f-af7d-0dd6455ae4d1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/GetUpcomingMovies.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/GetUpcomingMovies.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/InfoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/InfoPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MonthPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MonthPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieCalendar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MovieCalendar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MovieData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieDataStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MovieDataStore.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/UIManager$MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/UIManager$MainFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/UIManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/UIManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/WeekPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/WeekPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalendarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GetUpcomingMovies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GetUpcomingMovies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieCalendar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DateTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DateTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieSearchPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieSearchPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UIManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UIManager.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,7 +32,7 @@
   <component name="ProjectId" id="1UEea4FTOSaxpw81rORXIskQFv1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
