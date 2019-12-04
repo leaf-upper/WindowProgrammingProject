@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class GetUpcomingMovies {
+public class GetUpcomingMovies{
 
     JSONObject jsonObject;
     JSONParser jsonParser;
@@ -28,7 +28,7 @@ public class GetUpcomingMovies {
         page = 1;
     }
 
-    public JSONArray parseJson() {
+    public JSONArray parseJson(MovieDataStore movieDataStore) {
         jsonParser = new JSONParser();
         try {
 
@@ -37,8 +37,7 @@ public class GetUpcomingMovies {
 
             for (int i = 0; i < movies.size(); i++) {
                 JSONObject nowObject = (JSONObject) movies.get(i);
-                System.out.print(nowObject.get("title") + ":");
-                System.out.println(nowObject.get("release_date"));
+                movieDataStore.addMovieData(new MovieData((String)nowObject.get("release_date"), (String)nowObject.get("title")));
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -73,5 +72,4 @@ public class GetUpcomingMovies {
         }
         return buffer;
     }
-
 }

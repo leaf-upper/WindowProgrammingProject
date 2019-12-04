@@ -18,6 +18,16 @@ public class CalendarPanel extends JPanel {
         calendar.set(this.year, this.month, this.day);
         infoPanel.setMonthFieldText(this.month);
         infoPanel.setYearFieldText(this.year);
+
+        if(!DataManager.getInstance().isdataFetched)
+        {
+            try {
+                DataManager.getInstance().upcomingmoviedatafetchThread.join(5000);
+            }catch(Exception e)
+            {
+                e.printStackTrace();
+            }
+        }
         monthPanel.setMonthPanel(this.year, this.month, upcomingMovieDataStore);
     }
     private int year;
@@ -54,7 +64,6 @@ public class CalendarPanel extends JPanel {
     private WeekPanel weekPanel;
     private MonthPanel monthPanel;
     private MovieDataStore upcomingMovieDataStore;
-    private GetUpcomingMovies movies;
 
     CalendarPanel(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -74,16 +83,7 @@ public class CalendarPanel extends JPanel {
         addMouseWheelListener(new MonthWheelListener());
         add(monthPanel);
 
-        upcomingMovieDataStore = new MovieDataStore();
-        movies = new GetUpcomingMovies();
-
-        JSONArray array = (JSONArray)movies.parseJson();
-        for (int i = 0; i < array.size(); i++) {
-            JSONObject nowObject = (JSONObject) array.get(i);
-            upcomingMovieDataStore.addMovieData(new MovieData((String)nowObject.get("release_date"), (String)nowObject.get("title")));
-        }
-        upcomingMovieDataStore.printMovieData();
-
+        upcomingMovieDataStore = DataManager.getInstance().getUpcomingMovies();
         setCalendar(getYear(), getMonth(), getDay());
     }
 
@@ -196,7 +196,7 @@ class InfoPanel extends JPanel{
         setBackground(Color.white);
         //setLayout(new FlowLayout(FlowLayout.CENTER));\
         setLayout(new FlowLayout(FlowLayout.CENTER));
-        setMaximumSize(new Dimension(1280, 80));
+        setMaximumSize(new Dimension(UIManager.FRAME_WIDTH,  UIManager.FRAME_HEIGHT));
         //setPreferredSize(new Dimension(100, 80));
         monthField = new JTextField();
         monthField.setBorder(new EmptyBorder(0, 0, 0, 0));
@@ -228,7 +228,7 @@ class WeekPanel extends JPanel{
     WeekPanel(){
         setBackground(Color.darkGray);
         setLayout(new GridLayout(1, 7));
-        setMaximumSize(new Dimension(1280, 60));
+        setMaximumSize(new Dimension(UIManager.FRAME_WIDTH, UIManager.FRAME_HEIGHT));
         for(int i = 0; i < 7; i++){
             JLabel label = new JLabel(weekName[i], SwingConstants.CENTER);
             label.setFont(new Font("Bodoni MT", Font.BOLD, 16));
@@ -305,15 +305,17 @@ class MonthPanel extends JPanel{
                 int nextDay = i - (dayOfWeek + dayOfMonth);
                 dayPanels[i].setDayLabelText(nextDay + 1, Color.gray);
             }
+
         }
     }
 }
 
 class DayPanel extends JPanel{
     private JLabel dayLabel;
-    private JLabel movieLabel;
     private int maxDisplayMovie;
     private Vector<MovieData> movieDataVector;
+    private JLabel movieLabel;
+
     public Vector<MovieData> getMovieDataVector() {return movieDataVector;}
 
     DayPanel(){
@@ -325,11 +327,16 @@ class DayPanel extends JPanel{
 
         dayLabel = new JLabel();
         dayLabel.setFont(new Font("Bodoni MT", Font.BOLD, 16));
+
+        movieDataVector = new Vector<MovieData>();
+
+
         movieLabel = new JLabel("");
         movieLabel.setFont(new Font("바탕체", Font.PLAIN, 12));
         movieLabel.setForeground(Color.blue);
+        movieLabel.addMouseListener(new MovieLabelMouseListener());
 
-        movieDataVector = new Vector<MovieData>();
+
 
         add(dayLabel);
         add(movieLabel);
@@ -339,6 +346,7 @@ class DayPanel extends JPanel{
         dayLabel.setText(String.valueOf(day));
         dayLabel.setForeground(color);
     }
+
 
     public void addMovieData(MovieData data){
         movieDataVector.add(data);
@@ -357,47 +365,14 @@ class DayPanel extends JPanel{
         info.append("</html>");
         movieLabel.setText(info.toString());
     }
-}
 
-class MovieDataStore{
-    private Vector<MovieData> movieDataVector;
-    public Vector<MovieData> getMovieDataVector() {return movieDataVector;}
-
-    MovieDataStore(){
-        movieDataVector = new Vector<MovieData>();
-    }
-
-    public void addMovieData(MovieData data){
-        movieDataVector.add(data);
-    }
-
-    public void printMovieData(){
-        for(MovieData movieData : movieDataVector){
-            System.out.println(movieData.getReleaseDate() + " " + movieData.getTitle());
+    class MovieLabelMouseListener extends MouseAdapter
+    {
+        public void mouseClicked(MouseEvent e)
+        {
+            JLabel label = (JLabel)e.getSource();
+            System.out.println(label.getText());
         }
     }
 }
 
-class MovieData{
-    private String releaseDate;
-    public String getReleaseDate() {return releaseDate;}
-    private int year;
-    public int getYear() {return year;}
-    private int month;
-    public int getMonth() {return month;}
-    private int day;
-    public int getDay() {return day;}
-    private String title;
-    public String getTitle() {return title;}
-
-    MovieData(String releaseDate, String title)
-    {
-        this.releaseDate = releaseDate;
-        this.title = title;
-        String[] dateArray = releaseDate.split("-");
-        this.year = Integer.valueOf(dateArray[0]);
-        this.month = Integer.valueOf(dateArray[1]);
-        this.day = Integer.valueOf(dateArray[2]);
-    }
-
-}
