@@ -9,6 +9,7 @@ public class DateTime
     Date date;
     SimpleDateFormat formatter;
     Calendar calendar;
+    public Calendar getCalendar() {return calendar;}
 
     DateTime()
     {

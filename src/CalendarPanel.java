@@ -67,7 +67,7 @@ public class CalendarPanel extends JPanel {
 
     CalendarPanel(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        calendar = new GregorianCalendar(Locale.KOREA);;
+        calendar = new DateTime().getCalendar();
         setYear(calendar.get(Calendar.YEAR));
         setMonth(calendar.get(Calendar.MONTH));;
         setDay(calendar.get(Calendar.DATE));
@@ -200,14 +200,14 @@ class InfoPanel extends JPanel{
         //setPreferredSize(new Dimension(100, 80));
         monthField = new JTextField();
         monthField.setBorder(new EmptyBorder(0, 0, 0, 0));
-        monthField.setFont(new Font("Bodoni MT", Font.BOLD, 48));
+        monthField.setFont(new Font("Bodoni MT", Font.BOLD, 42));
 
         JLabel blankLabel = new JLabel();
-        blankLabel.setPreferredSize(new Dimension(24, 8));
+        blankLabel.setPreferredSize(new Dimension(24, 4));
 
         yearField = new JTextField();
         yearField.setBorder(new EmptyBorder(0, 0, 0, 0));
-        yearField.setFont(new Font("Bodoni MT", Font.BOLD, 48));
+        yearField.setFont(new Font("Bodoni MT", Font.BOLD, 42));
 
         add(monthField);
         add(blankLabel);
@@ -266,7 +266,6 @@ class MonthPanel extends JPanel{
             if(i % 7 == 0)
                 color = Color.red;
             dayPanels[i].getMovieDataVector().clear();
-            dayPanels[i].setMovieLabel();
 
             if(i >= dayOfWeek && i < dayOfWeek + dayOfMonth)
             {
@@ -280,7 +279,6 @@ class MonthPanel extends JPanel{
                     if(movieDataStore.getMovieDataVector().get(j).getDay() == i)
                         dayPanels[i].addMovieData(movieDataStore.getMovieDataVector().get(j));
                 }
-                dayPanels[i].setMovieLabel();
             }
             else if(i < dayOfWeek)
             {
@@ -305,16 +303,17 @@ class MonthPanel extends JPanel{
                 int nextDay = i - (dayOfWeek + dayOfMonth);
                 dayPanels[i].setDayLabelText(nextDay + 1, Color.gray);
             }
-
+            dayPanels[i].setMovieLabels();
         }
     }
 }
 
 class DayPanel extends JPanel{
     private JLabel dayLabel;
-    private int maxDisplayMovie;
     private Vector<MovieData> movieDataVector;
-    private JLabel movieLabel;
+    private Vector<JLabel> movieLabels;
+
+    private static final int MAX_MOVIE = 6;
 
     public Vector<MovieData> getMovieDataVector() {return movieDataVector;}
 
@@ -323,23 +322,22 @@ class DayPanel extends JPanel{
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new LineBorder(Color.gray));
 
-        maxDisplayMovie = 3;
-
         dayLabel = new JLabel();
         dayLabel.setFont(new Font("Bodoni MT", Font.BOLD, 16));
+        add(dayLabel);
 
         movieDataVector = new Vector<MovieData>();
+        movieLabels = new Vector<JLabel>();
+        for(int i = 0; i < MAX_MOVIE; i++)
+        {
+            JLabel movieLabel = new JLabel(" ");
+            movieLabel.setFont(new Font("바탕체", Font.PLAIN, 12));
+            movieLabel.setForeground(Color.blue);
+            movieLabel.addMouseListener(new MovieLabelMouseListener());
+            movieLabels.add(movieLabel);
+            add(movieLabel);
+        }
 
-
-        movieLabel = new JLabel("");
-        movieLabel.setFont(new Font("바탕체", Font.PLAIN, 12));
-        movieLabel.setForeground(Color.blue);
-        movieLabel.addMouseListener(new MovieLabelMouseListener());
-
-
-
-        add(dayLabel);
-        add(movieLabel);
     }
 
     public void setDayLabelText(int day, Color color){
@@ -347,23 +345,17 @@ class DayPanel extends JPanel{
         dayLabel.setForeground(color);
     }
 
-
     public void addMovieData(MovieData data){
         movieDataVector.add(data);
     }
 
-    public void setMovieLabel(){
-        StringBuilder info = new StringBuilder("<html>");
-        for(int i = 0; i < movieDataVector.size(); i++){
-            if(i == maxDisplayMovie)
-                break;
-            info.append(movieDataVector.get(i).getTitle());
-            info.append("<br>");
+    public void setMovieLabels(){
+        for(int i = 0; i < movieLabels.size(); i++){
+            if(i < movieDataVector.size())
+                movieLabels.get(i).setText(movieDataVector.get(i).getTitle());
+            else
+                movieLabels.get(i).setText(" ");
         }
-        if(movieDataVector.size() > maxDisplayMovie)
-            info.append(". . .");
-        info.append("</html>");
-        movieLabel.setText(info.toString());
     }
 
     class MovieLabelMouseListener extends MouseAdapter
@@ -371,7 +363,16 @@ class DayPanel extends JPanel{
         public void mouseClicked(MouseEvent e)
         {
             JLabel label = (JLabel)e.getSource();
-            System.out.println(label.getText());
+            for(int i = 0; i < movieDataVector.size(); i++)
+            {
+                if(label.getText().equals(movieDataVector.get(i).getTitle()))
+                {
+                    System.out.println(movieDataVector.get(i).getYear() + "-" + movieDataVector.get(i).getTitle());
+                    UIManager.getInstance().mainFrame.goToMovieSearchPanel(movieDataVector.get(i).getTitle(), movieDataVector.get(i).getYear());
+                    break;
+                }
+            }
+
         }
     }
 }

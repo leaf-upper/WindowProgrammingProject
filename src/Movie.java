@@ -7,13 +7,13 @@ public class Movie extends JFrame {
     JScrollPane pane;
     Movie()
     {
-        panel = new MovieSearchPanel("어벤져스", 2019);
+        /*panel = new MovieSearchPanel("어벤져스", 2019);
         pane = new JScrollPane(panel);
 
         add(pane);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        setSize(1280,720);
+        setSize(1280,720);*/
     }
 }
 
