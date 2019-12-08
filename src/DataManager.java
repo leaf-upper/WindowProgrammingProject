@@ -79,7 +79,7 @@ class MemoDataStore{
         ReadFromTXT readFromTXT = new ReadFromTXT();
         for(int i = 0; i < yearVector.size(); i++){
             for(int j =1; j < 13; j++){
-                if(readFromTXT.checkFileExist("C:\\Users\\user\\Desktop\\calendar\\" + yearVector.elementAt(i) + "\\" + j + ".txt") == 0){
+                if(readFromTXT.checkFileExist("C:\\calendar\\" + yearVector.elementAt(i) + "\\" + j + ".txt") == 0){
                     for(int k = 1; k < 32; k++){
                         try {
                             if(readFromTXT.readData(i, j, k).year != 0){
