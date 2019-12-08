@@ -314,6 +314,9 @@ class DayPanel extends JPanel{
     private Vector<MovieData> movieDataVector;
     private Vector<JLabel> movieLabels;
 
+    private boolean isMemoPanel;
+    public boolean getIsMemoPanel() {return isMemoPanel;}
+
     private static final int MAX_MOVIE = 6;
 
     public Vector<MovieData> getMovieDataVector() {return movieDataVector;}
