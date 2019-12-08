@@ -11,6 +11,7 @@ public class CalendarPanel extends JPanel {
 
     private Calendar calendar;
     public Calendar getCalendar() { return calendar; }
+
     public void setCalendar(int year, int month, int day){
         setYear(year);
         setMonth(month);
@@ -321,7 +322,15 @@ class DayPanel extends JPanel{
         this.setAlignmentX(LEFT_ALIGNMENT);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(new LineBorder(Color.gray));
-
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                CalendarPanel calendar = UIManager.getInstance().getCalendarPanel();
+                MemoDialog memoDialog = new MemoDialog(calendar.getYear(), calendar.getMonth(), Integer.parseInt(dayLabel.getText()));
+                memoDialog.setVisible(true);
+            }
+        });
         dayLabel = new JLabel();
         dayLabel.setFont(new Font("Bodoni MT", Font.BOLD, 16));
         add(dayLabel);

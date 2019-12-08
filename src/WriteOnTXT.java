@@ -12,8 +12,10 @@ public class WriteOnTXT {
 
     void writeData(int year, int month, int day, String memo) throws IOException {
 
-        filePath = "C:\\Users\\user\\Desktop\\" + year + "\\" + month + ".txt";
+        filePath = "C:\\Users\\user\\Desktop\\calendar\\" + year + "\\" + (month+1) + ".txt";
         this.memo = memo;
+
+        writeWhichYearDoYouHave(year);
 
         try {
             checkBeforeWrite(year, month, day);
@@ -26,7 +28,6 @@ public class WriteOnTXT {
         }finally {
             bufferedWriter.close();
         }
-
     }
 
     void checkBeforeWrite(int year, int month, int day) throws IOException {
@@ -51,13 +52,34 @@ public class WriteOnTXT {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             File file = new File(filePath);
-            File fileDirectory = new File("C:\\Users\\user\\Desktop\\" + year);
+            File fileDirectory = new File("C:\\Users\\user\\Desktop\\calendar\\" + year);
 
             if(!fileDirectory.isDirectory()){
                 fileDirectory.mkdir();
             }else if(!file.isFile()){
                 System.out.println("파일 만들거임");
             }
+        }
+    }
+
+    void writeWhichYearDoYouHave(int year) throws IOException {
+        boolean haveSameYear = false;
+        File fileDirectory = new File("C:\\Users\\user\\Desktop\\calendar");
+        if(!fileDirectory.isDirectory()){
+            fileDirectory.mkdirs();
+        }
+
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(fileDirectory.getPath() + "\\year.txt"));
+        while(bufferedReader.readLine() != null){
+            if(bufferedReader.readLine() == Integer.toString(year)){
+                haveSameYear = true;
+            }
+        }
+        if(haveSameYear == false){
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileDirectory.getPath() + "\\year.txt", false));
+            bufferedWriter.write(year);
+            bufferedWriter.newLine();
+            bufferedWriter.flush();
         }
     }
 }

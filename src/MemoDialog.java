@@ -12,7 +12,7 @@ public class MemoDialog extends JDialog{
     public MemoDialog(int year, int month, int day) {
         super();
         this.year = year;
-        this.month = month;
+        this.month = month+1;
         this.day = day;
         init();
     }
@@ -21,7 +21,7 @@ public class MemoDialog extends JDialog{
         jTextArea = new JTextArea(7, 20);
         ReadFromTXT readFromTXT = new ReadFromTXT();
         try {
-            jTextArea.setText(readFromTXT.readData(year, month, day));
+            jTextArea.setText(readFromTXT.readData(year, month, day).memo);
         } catch (IOException e) {
             e.printStackTrace();
         }
