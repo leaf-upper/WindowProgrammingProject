@@ -1,8 +1,12 @@
+import javax.xml.crypto.Data;
+
 public class MovieCalendar {
     private UIManager uiManager;
     private GetUpcomingMovies movies;
     private  TodayMovieScreen movies2;
+
     MovieCalendar(){
+        DataManager.getInstance();
         uiManager = UIManager.getInstance();
         movies = new GetUpcomingMovies();
         movies2 = new TodayMovieScreen();

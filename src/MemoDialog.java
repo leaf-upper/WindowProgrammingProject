@@ -21,7 +21,9 @@ public class MemoDialog extends JDialog{
         jTextArea = new JTextArea(7, 20);
         ReadFromTXT readFromTXT = new ReadFromTXT();
         try {
-            jTextArea.setText(readFromTXT.readData(year, month, day).memo);
+            if(readFromTXT.readData(year, month, day).memo != null){
+                jTextArea.setText(readFromTXT.readData(year, month, day).memo);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -32,6 +34,8 @@ public class MemoDialog extends JDialog{
                 WriteOnTXT writeOnTXT = new WriteOnTXT();
                 try {
                     writeOnTXT.writeData(year, month, day, jTextArea.getText());
+                    MemoData memoData = new MemoData(year, month, day, jTextArea.getText());
+                    DataManager.getInstance().getMemoDataStore().getMemoDataVector().add(memoData);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }

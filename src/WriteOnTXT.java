@@ -12,6 +12,10 @@ public class WriteOnTXT {
 
     void writeData(int year, int month, int day, String memo) throws IOException {
 
+        if(year == 0 && month == 0){
+            return;
+        }
+
         filePath = "C:\\calendar\\" + year + "\\" + month + ".txt";
         this.memo = memo;
 
@@ -26,7 +30,7 @@ public class WriteOnTXT {
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
-            bufferedWriter.close();
+            //bufferedWriter.close();
         }
     }
 
@@ -39,9 +43,17 @@ public class WriteOnTXT {
             String[] string;
             while((temp =bufferedReader.readLine()) != null){
                 string = temp.split("\\|");
-                if(Integer.parseInt(string[0]) != day){
-                    arrayList.add(temp);
+                try {
+                    if(string[0].equals("")){
+                        continue;
+                    }
+                    if(Integer.parseInt(string[0]) != day){
+                        arrayList.add(temp);
+                    }
+                }catch (NullPointerException e){
+                    e.printStackTrace();
                 }
+
             }
             bufferedWriter = new BufferedWriter(new FileWriter(filePath, false));
             for(int i = 0; i < arrayList.size(); i++){
@@ -68,6 +80,25 @@ public class WriteOnTXT {
         if(!fileDirectory.isDirectory()){
             fileDirectory.mkdirs();
         }
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(fileDirectory.getPath() + "\\year.txt"));
+            while(bufferedReader.readLine() != null){
+                if(bufferedReader.readLine() == Integer.toString(year)){
+                    haveSameYear = true;
+                }
+            }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+            File file = new File(filePath);
+            File fileDirect = new File("C:\\calendar\\" + year);
+
+            if(!fileDirect.isDirectory()){
+                fileDirect.mkdir();
+            }else if(!file.isFile()){
+                System.out.println("파일 만들거임");
+            }
+        }
+
 
         if(haveSameYear == false){
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileDirectory.getPath() + "\\year.txt", true));
@@ -75,11 +106,6 @@ public class WriteOnTXT {
             bufferedWriter.newLine();
             bufferedWriter.flush();
         }
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(fileDirectory.getPath() + "\\year.txt"));
-        while(bufferedReader.readLine() != null){
-            if(bufferedReader.readLine() == Integer.toString(year)){
-                haveSameYear = true;
-            }
-        }
+
     }
 }

@@ -54,14 +54,22 @@ class MemoDataStore{
     private Vector<MemoData> memoDataVector;
     private Vector<Integer> yearVector;
 
-    public Vector<MemoData> getMemoDataVector(){return memoDataVector;}
-    public Vector<Integer> getYearVector(){return yearVector;}
-
     MemoDataStore(){
         memoDataVector = new Vector<MemoData>();
-        yearVector = new Vector<>();
+        yearVector = new Vector<Integer>();
+    }
+
+    public Vector<Integer> init()
+    {
         setYearVector();
-        setMemoDataVector();}
+        setMemoDataVector();
+
+        return yearVector;
+    }
+
+
+    public Vector<MemoData> getMemoDataVector(){return memoDataVector;}
+    public Vector<Integer> getYearVector(){return yearVector;}
 
     public void addMemoData(MemoData data){memoDataVector.add(data);}
     public void addYear(int year){yearVector.add(year);}
