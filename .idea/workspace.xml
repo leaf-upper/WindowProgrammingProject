@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8935484a-559c-4e8f-af7d-0dd6455ae4d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MemoData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MemoData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDataStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDataStore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MovieData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieDataStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MovieDataStore.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,8 +21,14 @@
   </component>
   <component name="ProjectId" id="1UEea4FTOSaxpw81rORXIskQFv1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../window_project" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -36,18 +37,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\pimm\IdeaProjects\MovieCalendar\.idea" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.MovieCalendar">
     <configuration name="Movie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -70,6 +59,18 @@
         <item itemvalue="Application.Movie" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -96,6 +97,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1575896864914">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="408" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/1920.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1575896864914" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
