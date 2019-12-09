@@ -81,8 +81,10 @@ public class WriteOnTXT {
         }
         try {
             BufferedReader bufferedReader = new BufferedReader(new FileReader(fileDirectory.getPath() + "\\year.txt"));
-            while(bufferedReader.readLine() != null){
-                if(bufferedReader.readLine() == Integer.toString(year)){
+            String temp = null;
+            while((temp = bufferedReader.readLine()) != null){
+                int num = Integer.parseInt(temp);
+                if(num == year){
                     haveSameYear = true;
                 }
             }
@@ -98,7 +100,6 @@ public class WriteOnTXT {
             }
         }
 
-
         if(haveSameYear == false){
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileDirectory.getPath() + "\\year.txt", true));
             bufferedWriter.write(""+year);
@@ -106,6 +107,5 @@ public class WriteOnTXT {
             bufferedWriter.newLine();
             bufferedWriter.flush();
         }
-
     }
 }

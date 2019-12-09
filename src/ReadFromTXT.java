@@ -21,7 +21,6 @@ public class ReadFromTXT {
             String[] string;
             while((temp =bufferedReader.readLine()) != null){
                 string = temp.split("\\|");
-                System.out.println(string[0]);
                 if(string[0].equals(""))
                     return new MemoData(0, 0, 0, " ");
                 if(Integer.parseInt(string[0]) == day){
@@ -37,10 +36,10 @@ public class ReadFromTXT {
         if(checkFileExist("C:\\calendar\\year.txt") == -1){
             System.out.println("아직 생성이 한번도 안됨");
         }else {
+            String temp = null;
             BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\calendar\\year.txt"));
-            while(bufferedReader.readLine() != null){
-               DataManager.getInstance().getMemoDataStore().init().add(Integer.parseInt(bufferedReader.readLine()));
-
+            while((temp=bufferedReader.readLine()) != null){
+                DataManager.getInstance().getMemoDataStore().getYearVector().add(Integer.parseInt(temp));
             }
         }
     }
