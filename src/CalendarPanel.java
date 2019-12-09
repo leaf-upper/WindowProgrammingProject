@@ -64,6 +64,7 @@ public class CalendarPanel extends JPanel {
     private InfoPanel infoPanel;
     private WeekPanel weekPanel;
     private MonthPanel monthPanel;
+    public MonthPanel getMonthPanel(){return monthPanel;}
     private MovieDataStore upcomingMovieDataStore;
 
     CalendarPanel(){
@@ -269,7 +270,12 @@ class MonthPanel extends JPanel{
             add(dayPanels[i]);
         }
     }
-
+    public void changeBackGround(int year, int month, int day){
+        Calendar calendar = new GregorianCalendar();
+        calendar.set(year, month-1, 1);
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        dayPanels[dayOfWeek + day -1].setBackground(Color.green);
+    }
     void setMonthPanel(int year, int month, MovieDataStore movieDataStore){
         Calendar calendar = new GregorianCalendar();
         calendar.set(year, month, 1);
@@ -281,6 +287,7 @@ class MonthPanel extends JPanel{
             if(i % 7 == 0)
                 color = Color.red;
             dayPanels[i].getMovieDataVector().clear();
+            dayPanels[i].setBackground(Color.white);
 
             if(i >= dayOfWeek && i < dayOfWeek + dayOfMonth)
             {
@@ -293,6 +300,17 @@ class MonthPanel extends JPanel{
                         continue;
                     if(movieDataStore.getMovieDataVector().get(j).getDay() == i)
                         dayPanels[i].addMovieData(movieDataStore.getMovieDataVector().get(j));
+                }
+                for(int j = 0; j < DataManager.getInstance().getMemoDataStore().getMemoDataVector().size(); j++){
+                    if(DataManager.getInstance().getMemoDataStore().getMemoDataVector().elementAt(j).year != year){
+                        continue;
+                    }
+                    if(DataManager.getInstance().getMemoDataStore().getMemoDataVector().elementAt(j).month-1 != month){
+                        continue;
+                    }
+                    if(DataManager.getInstance().getMemoDataStore().getMemoDataVector().elementAt(j).day == i + 1 - dayOfWeek){
+                        dayPanels[i].setBackground(Color.GREEN);
+                    }
                 }
             }
             else if(i < dayOfWeek)
