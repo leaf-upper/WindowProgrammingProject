@@ -20,6 +20,7 @@ public class MemoDialog extends JDialog{
 
     void init() {
         jTextArea = new JTextArea(7, 20);
+        JScrollPane jScrollPane = new JScrollPane(jTextArea);
         ReadFromTXT readFromTXT = new ReadFromTXT();
         try {
             if(readFromTXT.readData(year, month, day).memo != null){
@@ -53,10 +54,11 @@ public class MemoDialog extends JDialog{
             }
         });
         getContentPane().setLayout(new FlowLayout());
-        getContentPane().add(jTextArea);
+        getContentPane().add(jScrollPane);
         getContentPane().add(jButton1);
         getContentPane().add(jButton2);
         setSize(250, 200);
+        setResizable(false);
         setVisible(true);
     }
 }
