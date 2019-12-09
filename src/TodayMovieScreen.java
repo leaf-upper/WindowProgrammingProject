@@ -3,30 +3,34 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import javax.swing.*;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Vector;
 
 public class TodayMovieScreen extends JPanel
 {
     JLabel message;
-    JTextArea dayScreenMovieInfo;
+    CardLayout cardLayout;
+
     JSONObject jsonObject;
     JSONParser jsonParser;
     JSONArray jsonArray;
+
+
     GetTodayMovieScreenInfo movieScreenInfo;
 
     TodayMovieScreen()
     {
         super();
+        cardLayout = new CardLayout();
+        setLayout(cardLayout);
+
         message = new JLabel("오늘 상영중인 영화");
-        dayScreenMovieInfo = new JTextArea(10,10);
         movieScreenInfo = new GetTodayMovieScreenInfo();
         movieScreenInfo.makeDayScreenMovieInfo();
-
-        add(message);
-        add(dayScreenMovieInfo);
     }
 
 
@@ -67,7 +71,6 @@ public class TodayMovieScreen extends JPanel
                 for(int i = 0; i < jsonArray.size(); i++)
                 {
                     JSONObject nowObject = (JSONObject)jsonArray.get(i);
-                    dayScreenMovieInfo.append(nowObject.get("movieNm") + ":" + nowObject.get("openDt") +"\n");
                     System.out.print(nowObject.get("movieNm") + ":");
                     System.out.println(nowObject.get("openDt"));
                 }

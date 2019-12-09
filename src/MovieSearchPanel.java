@@ -15,7 +15,7 @@ public class MovieSearchPanel extends JPanel implements Scrollable
     GetMovieInfo getMovieInfo;
     JSONArray movieArray;
     BoxLayout boxLayout;
-    String default_imagepath = "https://image.tmdb.org/t/p/w300";
+    String default_imagepath = "https://image.tmdb.org/t/p/w500";
 
 
     TitleGenrePanel titleGenrePanel;
@@ -151,7 +151,7 @@ class TitlePanel extends JPanel{
         setBackground(Color.darkGray);
         setForeground(Color.white);
         titleLabel = new JLabel("영화 제목");
-        titleLabel.setFont(new Font("돋움체", Font.BOLD, 96));
+        titleLabel.setFont(new Font("돋움체", Font.BOLD, 70));
         titleLabel.setForeground(Color.white);
         add(titleLabel);
     }
@@ -165,7 +165,7 @@ class GenrePanel extends JPanel{
         setBackground(Color.BLACK);
 
         genreLabel = new JLabel("장르");
-        genreLabel.setFont(new Font("돋움체", Font.PLAIN, 48));
+        genreLabel.setFont(new Font("돋움체", Font.PLAIN, 30));
         genreLabel.setForeground(Color.white);
         add(genreLabel);
     }
@@ -184,12 +184,12 @@ class OverViewPanel extends JPanel{
         blank.setMaximumSize(new Dimension(10, 30));
         blank.setBackground(Color.white);
         add(blank);
-        overViewArea = new JTextArea(20, 60);
+        overViewArea = new JTextArea(20, 55);
         overViewArea.setFont(new Font("바탕체", Font.BOLD, 28));;
         overViewArea.setBackground(Color.gray);
         overViewArea.setLineWrap(true);
         overViewArea.setFocusable(false);
-        overViewArea.setMaximumSize(new Dimension(Math.round(UIManager.getInstance().FRAME_WIDTH / (16 / 9) * 0.7f) , UIManager.getInstance().FRAME_WIDTH));
+        overViewArea.setMaximumSize(new Dimension(Math.round(UIManager.getInstance().FRAME_WIDTH / (16 / 9) * 0.65f) , UIManager.getInstance().FRAME_WIDTH));
         System.out.println(UIManager.getInstance().FRAME_WIDTH);
         //overViewArea.setBackground();
         add(overViewArea);
