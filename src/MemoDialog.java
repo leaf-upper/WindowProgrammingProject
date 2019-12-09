@@ -14,6 +14,7 @@ public class MemoDialog extends JDialog{
         this.year = year;
         this.month = month+1;
         this.day = day;
+        setTitle(this.year +"."+ this.month +"."+this.day);
         init();
     }
 
@@ -55,7 +56,7 @@ public class MemoDialog extends JDialog{
         getContentPane().add(jTextArea);
         getContentPane().add(jButton1);
         getContentPane().add(jButton2);
-        setSize(200, 200);
+        setSize(250, 200);
         setVisible(true);
     }
 }
