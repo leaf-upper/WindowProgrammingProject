@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="MovieCalendar:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8935484a-559c-4e8f-af7d-0dd6455ae4d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/MovieCalendar_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$FocusMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$FocusMouseListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$MonthInfoListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$MonthInfoListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$MonthWheelListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$MonthWheelListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$YearInfoListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel$YearInfoListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/CalendarPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel$MovieLabelMouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel$MovieLabelMouseListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/DayPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/InfoPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/InfoPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDialog$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDialog$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDialog$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MemoDialog.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MonthPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MonthPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/WeekPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/WeekPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MovieCalendar/MovieCalendar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MovieCalendar/MovieCalendar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CalendarPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CalendarPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MemoDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MemoDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieCalendar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieCalendar.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,10 +37,12 @@
   <component name="ProjectId" id="1UEea4FTOSaxpw81rORXIskQFv1" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../window_project" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -114,13 +114,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/TodayMovieScreen.java</url>
-          <line>63</line>
+          <line>71</line>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/TodayMovieScreen.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,4 +1,6 @@
 import javax.xml.crypto.Data;
+import java.lang.reflect.Field;
+import java.nio.charset.Charset;
 
 public class MovieCalendar {
     private UIManager uiManager;
@@ -14,6 +16,20 @@ public class MovieCalendar {
     }
 
     public static void main(String[] args){
+        System.setProperty("file.encoding","UTF-8");
+        Field charset = null;
+        try {
+            charset = Charset.class.getDeclaredField("defaultCharset");
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        charset.setAccessible(true);
+        try {
+            charset.set(null,null);
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
         MovieCalendar movieCalendar = new MovieCalendar();
         movieCalendar.uiManager.draw();
 

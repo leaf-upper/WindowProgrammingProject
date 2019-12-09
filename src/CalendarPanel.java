@@ -288,6 +288,9 @@ class MonthPanel extends JPanel{
                 color = Color.red;
             dayPanels[i].getMovieDataVector().clear();
             dayPanels[i].setBackground(Color.white);
+            if(i % 7 == 0 || i % 7 == 6){
+                dayPanels[i].setBackground(Color.lightGray);
+            }
 
             if(i >= dayOfWeek && i < dayOfWeek + dayOfMonth)
             {
