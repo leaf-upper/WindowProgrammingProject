@@ -38,6 +38,7 @@ public class MemoDialog extends JDialog{
                     writeOnTXT.writeData(year, month, day, jTextArea.getText());
                     MemoData memoData = new MemoData(year, month, day, jTextArea.getText());
                     DataManager.getInstance().getMemoDataStore().getMemoDataVector().add(memoData);
+                    UIManager.getInstance().getCalendarPanel().getMonthPanel().changeBackGround(year, month, day);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
