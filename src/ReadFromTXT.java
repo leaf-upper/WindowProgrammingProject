@@ -40,6 +40,7 @@ public class ReadFromTXT {
             BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\calendar\\year.txt"));
             while(bufferedReader.readLine() != null){
                DataManager.getInstance().getMemoDataStore().init().add(Integer.parseInt(bufferedReader.readLine()));
+
             }
         }
     }

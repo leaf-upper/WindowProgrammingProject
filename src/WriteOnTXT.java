@@ -15,7 +15,6 @@ public class WriteOnTXT {
         if(year == 0 && month == 0){
             return;
         }
-
         filePath = "C:\\calendar\\" + year + "\\" + month + ".txt";
         this.memo = memo;
 
@@ -103,6 +102,7 @@ public class WriteOnTXT {
         if(haveSameYear == false){
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileDirectory.getPath() + "\\year.txt", true));
             bufferedWriter.write(""+year);
+
             bufferedWriter.newLine();
             bufferedWriter.flush();
         }
