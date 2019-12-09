@@ -14,7 +14,7 @@ public class ReadFromTXT {
         return 0;
     }
     MemoData readData(int year, int month, int day) throws IOException {
-        this.filePath = "C:\\Users\\user\\Desktop\\calendar\\" + year + "\\" + month + ".txt";
+        this.filePath = "C:\\calendar\\" + year + "\\" + month + ".txt";
         if(checkFileExist(filePath) == 0){
             BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath));
             String temp = null;
@@ -31,13 +31,12 @@ public class ReadFromTXT {
     }
 
     void readWhichYearDoYouHave() throws IOException {
-        if(checkFileExist("C:\\Users\\user\\Desktop\\calendar\\year.txt") == -1){
+        if(checkFileExist("C:\\calendar\\year.txt") == -1){
             System.out.println("아직 생성이 한번도 안됨");
         }else {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\Users\\user\\Desktop\\calendar\\year.txt"));
-            DataManager dataManager = DataManager.getInstance();
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("C:\\calendar\\year.txt"));
             while(bufferedReader.readLine() != null){
-                dataManager.getMemoDataStore().getYearVector().add(Integer.parseInt(bufferedReader.readLine()));
+                DataManager.getInstance().getMemoDataStore().getYearVector().add(Integer.parseInt(bufferedReader.readLine()));
             }
         }
     }

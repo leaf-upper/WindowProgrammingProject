@@ -18,6 +18,14 @@ public class DateTime
         formatter = new SimpleDateFormat("yyyyMMdd");
     }
 
+    public String getCurrentYear()
+    {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy");
+        String time = format.format(date);
+
+        return time;
+    }
+
     public String getDateTime()
     {
         String time = formatter.format(date);

@@ -12,7 +12,7 @@ public class WriteOnTXT {
 
     void writeData(int year, int month, int day, String memo) throws IOException {
 
-        filePath = "C:\\Users\\user\\Desktop\\calendar\\" + year + "\\" + (month+1) + ".txt";
+        filePath = "C:\\calendar\\" + year + "\\" + month + ".txt";
         this.memo = memo;
 
         writeWhichYearDoYouHave(year);
@@ -52,7 +52,7 @@ public class WriteOnTXT {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             File file = new File(filePath);
-            File fileDirectory = new File("C:\\Users\\user\\Desktop\\calendar\\" + year);
+            File fileDirectory = new File("C:\\calendar\\" + year);
 
             if(!fileDirectory.isDirectory()){
                 fileDirectory.mkdir();
@@ -64,7 +64,7 @@ public class WriteOnTXT {
 
     void writeWhichYearDoYouHave(int year) throws IOException {
         boolean haveSameYear = false;
-        File fileDirectory = new File("C:\\Users\\user\\Desktop\\calendar");
+        File fileDirectory = new File("C:\\calendar");
         if(!fileDirectory.isDirectory()){
             fileDirectory.mkdirs();
         }
@@ -76,7 +76,7 @@ public class WriteOnTXT {
             }
         }
         if(haveSameYear == false){
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileDirectory.getPath() + "\\year.txt", false));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileDirectory.getPath() + "\\year.txt", true));
             bufferedWriter.write(year);
             bufferedWriter.newLine();
             bufferedWriter.flush();

@@ -193,6 +193,9 @@ class InfoPanel extends JPanel{
     private JTextField yearField;
     public JTextField getYearField() {return yearField;}
 
+    private JLabel todayMovieLabel;
+
+    private TodayMovieScreen todayMovieScreen;
     InfoPanel(){
         setBackground(Color.white);
         //setLayout(new FlowLayout(FlowLayout.CENTER));\
@@ -210,9 +213,20 @@ class InfoPanel extends JPanel{
         yearField.setBorder(new EmptyBorder(0, 0, 0, 0));
         yearField.setFont(new Font("Bodoni MT", Font.BOLD, 42));
 
+        todayMovieScreen = new TodayMovieScreen();
+
+        add(Box.createHorizontalStrut(600));
         add(monthField);
         add(blankLabel);
         add(yearField);
+        add(Box.createHorizontalStrut(150));
+
+        todayMovieLabel = new JLabel("오늘 상영중인 영화 : ");
+        todayMovieLabel.setFont(new Font("궁서",Font.PLAIN,20));
+        todayMovieScreen.setPreferredSize(new Dimension(200,50));
+        add(todayMovieLabel);
+        add(todayMovieScreen);
+        todayMovieScreen.runLabelThread();
     }
 
     public void setMonthFieldText(int month){
@@ -384,7 +398,6 @@ class DayPanel extends JPanel{
                     break;
                 }
             }
-
         }
     }
 }
